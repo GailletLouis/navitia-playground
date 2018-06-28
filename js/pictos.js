@@ -35,6 +35,7 @@ pictos.makePtPicto = function(json) {
         return $('<span/>');
     }
     var img = 'Unknown';
+    var ext = 'svg';
     switch (json.id) {
     case 'physical_mode:Air': img = 'Air'; break;
     case 'physical_mode:Bike': img = 'Bike'; break;
@@ -49,7 +50,7 @@ pictos.makePtPicto = function(json) {
     case 'physical_mode:CheckIn': img = 'CheckIn'; break;
     case 'physical_mode:CheckOut': img = 'CheckOut'; break;
     case 'physical_mode:Shuttle': img = 'Shuttle'; break;
-    case 'physical_mode:Rocket': img = 'Rocket'; break;
+    case 'physical_mode:Rocket': img = 'Rocket'; ext = 'png'; break;
 
     case 'physical_mode:Bus':
     case 'physical_mode:BusRapidTransit':
@@ -70,11 +71,11 @@ pictos.makePtPicto = function(json) {
         break;
     }
 
-    return pictos.makeImg(img, json.name);
+    return pictos.makeImg(img, ext, json.name);
 };
 
-pictos.makeImg = function(img, name) {
-    return pictos.makeImgFromUrl(sprintf('img/pictos/%s.svg', img), name);
+pictos.makeImg = function(img, ext, name) {
+    return pictos.makeImgFromUrl(sprintf('img/pictos/%s.%s', img, ext), name);
 };
 
 pictos.makeImgFromUrl = function(img, name) {
