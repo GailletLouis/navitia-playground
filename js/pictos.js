@@ -49,6 +49,7 @@ pictos.makePtPicto = function(json) {
     case 'physical_mode:CheckIn': img = 'CheckIn'; break;
     case 'physical_mode:CheckOut': img = 'CheckOut'; break;
     case 'physical_mode:Shuttle': img = 'Shuttle'; break;
+    case 'physical_mode:Rocket': img = 'Rocket'; break;
 
     case 'physical_mode:Bus':
     case 'physical_mode:BusRapidTransit':
