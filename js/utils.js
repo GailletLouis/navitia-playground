@@ -35,16 +35,21 @@ utils.htmlEncode = function(value) {
 };
 
 utils.durationToString = function(duration) {
+    var unit1 = 'seconds';
+    var unit2 = 'minutes';
+    var unit3 = 'hours';
+    var unit4 = 'days';
+    
     var res = '';
     var seconds = duration % 60;
     var minutes = Math.floor(duration / 60) % 60;
     var hours = Math.floor(duration / (60 * 60)) % 24;
     var days = Math.floor(duration / (24 * 60 * 60));
 
-    if (days !== 0) { res += sprintf('%sd', days); }
-    if (hours !== 0) { res += sprintf('%sh', hours); }
-    if (minutes !== 0) { res += sprintf('%smin', minutes); }
-    if (seconds !== 0) { res += sprintf('%ss', seconds); }
+    if (days !== 0) { res += sprintf('%s' + unit4, days); }
+    if (hours !== 0) { res += sprintf('%s' + unit3, hours); }
+    if (minutes !== 0) { res += sprintf('%s' + unit2, minutes); }
+    if (seconds !== 0) { res += sprintf('%s'+ unit1, seconds); }
 
     if (! res) {
         return '0s';
